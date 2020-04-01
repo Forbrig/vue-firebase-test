@@ -1,18 +1,16 @@
 <template>
-    <div>
-        Login
-        <form @submit.prevent="pressed">
-            <div class="email">
-                <input type="email" placeholder="email" v-model="email">
-            </div>
-            <div class="password">
-                <input type="password" placeholder="password" v-model="password">
-            </div>
-            <button type="submit">Login</button>
-            <div v-if="error" class="error">{{error.message}}</div>
-            <span>Need an account? Click here to <router-link to="/register">register</router-link></span>
+    <div class="login-container">
+        <div class="content">
+            <form @submit.prevent="pressed">
+                <h1>Login</h1>
+                <input class="input" type="email" placeholder="Email" v-model="email">
+                <input class="input" type="password" placeholder="Password" v-model="password">
 
-        </form>
+                <button class="button" type="submit">Login</button>
+                <div v-if="error" class="error">{{error.message}}</div>
+                <span class="register-text">Need an account? Click here to <router-link to="/register">register</router-link>.</span>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -43,5 +41,47 @@
 </script>
 
 <style lang="scss" scoped>
+    .login-container {
+        width: 100%;
+        max-width: 600px;
+        height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .login-container .content {
+        width: 100%;
+        padding: 96px;
+        background: #f0f0f5;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .login-container .content form {
+        width: 100%;
+    }
+
+    .login-container .content form input {
+        margin-top: 8px;
+        width: 100%;
+        height: 60px;
+        color: #333;
+        border: 1px solid #dcdce6;
+        border-radius: 8px;
+        padding: 0 24px;
+    }
+
+    .login-container .content .register-text {
+        font-size: 18px;
+        color: #737380;
+        line-height: 32px;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
 </style>

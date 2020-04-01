@@ -11,6 +11,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    redirect: '/login',
+  },
+  {
     path: '/login',
     name: 'Login',
     component: Login
@@ -46,4 +50,4 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-export default router
+export default router;
