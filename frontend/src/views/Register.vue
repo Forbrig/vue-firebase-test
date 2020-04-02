@@ -3,8 +3,8 @@
         <div class="content">
             <form @submit.prevent="pressed">
                 <h1>Register</h1>
-                <input class="input" type="email" v-model="Email" placeholder="email">
-                <input class="input" type="password" v-model="Password" placeholder="password">
+                <input required class="input" type="email" v-model="email" placeholder="Email">
+                <input required class="input" type="password" v-model="password" placeholder="Password">
                 <button class="button" type="submit">Register</button>
                 <div v-if="error" class="error">{{error.message}}</div>
                 <span class="login-text">Already have an account? Click here to <router-link to="/login">login</router-link>.</span>

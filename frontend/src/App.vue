@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <top-header></top-header>
-    <!-- <div id="nav">
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/register">Register</router-link>
-    </div> -->
+    <top-header v-if="!['Login', 'Register'].includes($route.name)"></top-header>
     <router-view/>
   </div>
 </template>
@@ -17,12 +13,18 @@
 </script>
 
 <style lang="scss">
+  @import '../public/roboto.ttf';
+
   * {
     margin: 0;
     padding: 0;
   }
 
-  body {
+  html, body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  html, body {
     height: 100%;
     background-color: #F0F0F5;
   }

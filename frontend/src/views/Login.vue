@@ -3,8 +3,8 @@
         <div class="content">
             <form @submit.prevent="pressed">
                 <h1>Login</h1>
-                <input class="input" type="email" placeholder="Email" v-model="email">
-                <input class="input" type="password" placeholder="Password" v-model="password">
+                <input required class="input" type="email" v-model="email" placeholder="Email">
+                <input required class="input" type="password" v-model="password" placeholder="Password">
 
                 <button class="button" type="submit">Login</button>
                 <div v-if="error" class="error">{{error.message}}</div>
@@ -27,8 +27,8 @@
             };
         },
         methods: {
-            pressed() {
-                firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            async pressed() {
+                await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
                 .then(data => {
                     console.log(data);
                     this.$router.replace({name: "Home"});
